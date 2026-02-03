@@ -1,0 +1,60 @@
+/* Carrossel horizontal */
+.cards-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    height: 100%;
+}
+
+.cards-carousel {
+    display: flex;
+    overflow-x: hidden;
+    /* esconde a barra de rolagem */
+    scroll-behavior: smooth;
+    gap: 20px;
+    /* espaço entre os cards */
+    width: 100%;
+    padding: 30px;
+}
+
+.cards-carousel::-webkit-scrollbar {
+    display: none;
+    /* tira a barra de rolagem no Chrome */
+}
+
+.cards-carousel .cardUniversidade {
+    flex: 0 0 300px;
+    /* largura fixa dos cards */
+    max-width: 300px;
+
+
+}
+
+/* Setas do carrossel */
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(9, 46, 94, 0.8);
+    color: white;
+    border-radius: 50%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.carousel-arrow.left {
+    left: -20px;
+}
+
+.carousel-arrow.right {
+    right: -20px;
+}
+
+.carousel-arrow:hover {
+    background-color: #006eff;
+}

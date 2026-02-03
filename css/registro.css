@@ -1,0 +1,288 @@
+/* Estilo padrão */
+/*divs*/
+#container {
+    display: flex; /*Não mudar*/
+    width: 100%; /*Não mudar*/
+    min-height: 100vh; /*Não mudar*/
+    overflow-x: hidden; /*Não mudar*/
+    align-items: center;
+}
+
+input::placeholder {
+  color:#032b60;
+}
+
+#container_left_outside {
+    display: flex; /*Não mudar*/
+    flex: 1; /*Não mudar*/
+    align-items: center; 
+    overflow-x: hidden; 
+}
+
+#div_login {
+    width: 40%;
+    height: 100%; 
+    margin: auto;
+    padding: 20px;
+    background-color:  #09274e;
+    border-radius: 25px;
+    display: flex;/*Não mudar*/
+    flex-direction: column;/*Não mudar*/
+    align-items: center;/*Não mudar*/
+    justify-content: center;/*Não mudar*/
+    
+    
+}
+
+#div_logotitulo {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 35px;
+}   
+
+/*IDS*/
+#campoestudante {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 10px;
+}
+#campoestudante-options {
+    display: flex;
+    flex-direction: row;
+ 
+    margin-top: 4px;
+}
+#campoestudante-options > div {
+    display: flex;
+    align-items: center;
+
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+#enviar {
+    background-color: #032b60; 
+    border: solid 2px #fffdf8; 
+    border-radius: 20px; 
+    display: block;/*Não mudar*/
+    margin: 30px auto 15px auto; 
+    width: 40%;
+    height: 40px;
+    font-size: 20px;
+    transition: 0.2s ease;
+}
+
+#esqueci {
+    text-align: right;
+    width: 70%;
+    margin: 5px 0 15px auto;
+    font-size: 15px;
+}
+
+#cadastre {
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+    text-decoration: none;
+    
+}
+#cadastre:hover {
+    text-decoration: underline;
+}
+
+#logopequena {
+    
+    height: 80px;
+    margin-bottom: 10px;
+    
+    
+}
+
+#grad {
+    display: flex;
+    align-items: center;
+}
+
+#inter {
+    display: flex;
+    align-items: center;
+}
+
+/*Classes*/
+.progress-container {
+  width: 80%;
+  background: #c4c4c4;
+  border-radius: 5px;
+  height: 10px;
+  margin: 0 auto 30px auto;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: #157fca;
+  transition: width 0.3s;
+  border-radius: 5px;
+}
+.tipoEstudante {
+    width: 60px;
+    height: 18px;
+}
+
+.und:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#enviar:hover {
+    background-color: #054292;
+    cursor: pointer;
+    
+    
+}
+
+
+.senha {
+    position: relative;
+}
+
+.senha i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #032b60;
+    font-size: 20px;
+}
+
+/*resto*/
+* {
+    color: #fffdf8;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input[type="radio"] {
+    accent-color: #0a3a79;
+}
+
+body {
+    display: flex;/*Não mudar*/
+    flex-direction: column;/*Não mudar*/
+    background-color: white;
+    min-height: 100vh;/*Não mudar*/
+    margin-bottom: 0px;/*Não mudar*/
+    height: auto;/*Não mudar*/
+    width: auto;/*Não mudar*/
+    
+}
+
+form {
+    width: 80%;
+    margin: 0 auto;
+    font-size: 10px;
+}
+
+input,
+select {
+    margin: 8px;
+    padding: 12px;
+    width: 100%;
+    height:auto;/*Não mudar*/
+    color: #032b60;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    outline: #032b60;
+}
+
+form label {
+    color: white;
+    font-size: 20px;
+}
+
+h2{
+    text-align: center;
+    font-size: 20px;
+}
+
+/*RESPONSIVIDADE*/ /*Não mudar nada aqui*/
+
+
+/* Telas pequenas (tablet retrato e celular horizontal) */
+@media (max-width: 768px) {
+    #div_login {
+        width: 90%;
+        position: relative;
+        height: auto;
+        border-radius: 20px;
+        margin: 20px auto;
+    }
+
+    .frase {
+        margin: 20px auto;
+        text-align: center;
+        font-size: 40px;
+    }
+
+    #logopequena {
+        width: 250px;
+        height: auto;
+    }
+}
+
+/* Telas bem pequenas (celulares) */
+@media (max-width: 480px) {
+    #div_login {
+        width: 95%;
+        height: auto;
+        padding: 15px;
+    }
+
+    form label {
+        font-size: 20px;
+    }
+
+    input,
+    select {
+        height: 45px;
+        font-size: 18px;
+    }
+
+    #enviar {
+        width: 60%;
+        height: 40px;
+        font-size: 20px;
+        font-weight: bolder;  
+        text-align: center;
+        vertical-align: middle;
+    }
+
+    #esqueci {
+        width: 100%;
+        text-align: center;
+        font-size: 14px;
+    }
+
+    #cadastre {
+        font-size: 18px;
+        text-decoration: none;
+    }
+
+    .frase {
+        font-size: 32px;
+        margin: 20px auto;
+        text-align: center;
+    }
+
+    #logopequena {
+        width: 200px;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+}

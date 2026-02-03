@@ -1,0 +1,94 @@
+
+main {
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+/* ===== Tabelas ===== */
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ffffff;
+}
+
+th {
+    background-color: #092e5e;
+    color: white;
+}
+
+tr:hover {
+    background-color: #e4e4e4;
+}
+
+td button {
+    padding: 6px 10px;
+    border: none;
+    background-color: #e74c3c;
+    color: white;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+td button:hover {
+    background-color: #c0392b;
+}
+
+
+/* ===== Inputs ===== */
+form div {
+    margin-bottom: 12px;
+}
+
+label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* ===== Botões ===== */
+button[type="submit"] {
+    padding: 10px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+/* ===== Containers ===== */
+#tabelaContainer {
+    margin-top: 20px;
+}
+

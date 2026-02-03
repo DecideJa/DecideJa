@@ -1,0 +1,144 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Exemplo: localização e distância</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        #status {
+            margin-top: 12px;
+        }
+
+        .place {
+            margin: 8px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Obter localização e calcular distância</h1>
+    <!-- Removido o botão, pois a localização será solicitada automaticamente -->
+    <div id="status"></div>
+
+    <h2>Distâncias</h2>
+    <div id="distances"></div>
+
+    <script>
+        // --- Função para pedir localização (retorna uma Promise) ---
+        function getUserLocation(options = {}) {
+            // options: { enableHighAccuracy: boolean, timeout: ms, maximumAge: ms }
+            return new Promise((resolve, reject) => {
+                if (!navigator.geolocation) {
+                    reject(new Error('Geolocation API não suportada no navegador.'));
+                    return;
+                }
+                navigator.geolocation.getCurrentPosition(
+                    position => {
+                        const { latitude, longitude, accuracy } = position.coords;
+                        resolve({ latitude, longitude, accuracy, timestamp: position.timestamp });
+                    },
+                    error => {
+                        // tratar erros clássicos
+                        switch (error.code) {
+                            case error.PERMISSION_DENIED:
+                                reject(new Error('Permissão negada para acessar a localização.'));
+                                break;
+                            case error.POSITION_UNAVAILABLE:
+                                reject(new Error('Localização indisponível.'));
+                                break;
+                            case error.TIMEOUT:
+                                reject(new Error('Tempo de requisição de localização esgotado.'));
+                                break;
+                            default:
+                                reject(new Error('Erro desconhecido ao acessar localização.'));
+                        }
+                    },
+                    options
+                );
+            });
+        }
+
+        // --- Haversine: distância entre 2 pontos (lat/lon em graus) ---
+        function haversineDistance(lat1, lon1, lat2, lon2) {
+            // raio da Terra em km (média)
+            const R = 6371.0088;
+            // converter graus para radianos
+            const toRad = v => (v * Math.PI) / 180;
+
+            const φ1 = toRad(lat1);
+            const φ2 = toRad(lat2);
+            const Δφ = toRad(lat2 - lat1);
+            const Δλ = toRad(lon2 - lon1);
+
+            const a = Math.sin(Δφ / 2) * Math.sin(Δφ / 2)
+                + Math.cos(φ1) * Math.cos(φ2)
+                * Math.sin(Δλ / 2) * Math.sin(Δλ / 2);
+
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+            const dKm = R * c; // distância em km
+            return dKm;
+        }
+
+        // --- Util: formatar distância ---
+        function formatDistance(dKm) {
+            if (dKm >= 1) return dKm.toFixed(2) + ' km';
+            return (dKm * 1000).toFixed(0) + ' m';
+        }
+
+        // --- Exemplo de uso com um ponto de referência fixo ---
+        const referencia = { nome: 'Universidade Exemplo', lat: -23.561684, lon: -46.625378 };
+
+        // --- Exemplo: lista de lugares (pode vir do back-end) ---
+        const lugares = [
+            { id: 1, nome: 'UFRGS', lat: -30.0318, lon: -51.2065 },
+            { id: 2, nome: 'UFSC', lat: -27.5945, lon: -48.5477 },
+            { id: 3, nome: 'UFPR', lat: -25.4195, lon: -49.2646 },
+        ];
+
+        // --- DOM helpers ---
+        const statusEl = document.getElementById('status');
+        const distancesEl = document.getElementById('distances');
+
+        // --- Executar automaticamente ao carregar a página ---
+        (async () => {
+            statusEl.textContent = 'Solicitando localização automaticamente... (verifique o prompt do navegador)';
+            distancesEl.innerHTML = '';
+            try {
+                // opcoes: ajuste se quiser mais precisão (pode consumir mais bateria)
+                const opts = { enableHighAccuracy: true, timeout: 15000, maximumAge: 0 };
+                const pos = await getUserLocation(opts);
+                statusEl.innerHTML = `Localização obtida: <strong>${pos.latitude.toFixed(6)}, ${pos.longitude.toFixed(6)}</strong>
+                              (accuracy ≈ ${pos.accuracy} m).`;
+
+                // Distância até ponto de referência
+                const dRefKm = haversineDistance(pos.latitude, pos.longitude, referencia.lat, referencia.lon);
+                distancesEl.innerHTML += `<div class="place"><strong>${referencia.nome}</strong>: ${formatDistance(dRefKm)}</div>`;
+
+                // Ordenar lista de lugares por distância e mostrar
+                const lugaresComDist = lugares.map(p => {
+                    const d = haversineDistance(pos.latitude, pos.longitude, p.lat, p.lon);
+                    return { ...p, distKm: d };
+                }).sort((a, b) => a.distKm - b.distKm);
+
+                distancesEl.innerHTML += '<hr />';
+                for (const p of lugaresComDist) {
+                    distancesEl.innerHTML += `<div class="place">${p.nome}: ${formatDistance(p.distKm)}</div>`;
+                }
+
+            } catch (err) {
+                statusEl.textContent = 'Erro: ' + err.message;
+                // fallback: aqui você pode pedir ao usuário inserir manualmente sua cidade/endereço
+            }
+        })();
+    </script>
+</body>
+
+</html>

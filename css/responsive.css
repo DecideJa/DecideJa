@@ -1,0 +1,234 @@
+/* responsive.css
+   Purpose: Single-file, minimal, well-commented responsive overrides for the project.
+   Rules here only change layout/flow/overflow/widths/box-sizing/image scaling and
+   use media queries for the requested breakpoints.
+
+   Breakpoints covered explicitly:
+     - very small phones: under 360px
+     - regular phones: 360–480px
+     - large phones / phablets: 480–768px
+     - small tablets: 768–900px
+     - tablets / small laptops: 900–1024px
+     - laptops: 1024–1366px
+     - desktops/widescreens: >1366px
+
+   Notes:
+   - This file intentionally avoids changing colors, fonts, class/ID names, markup
+     or JS behavior. It uses selectors already present in the project to override
+     only what's necessary.
+
+*/
+
+/* ---------------------------
+   Base helpers (applied at all sizes)
+   - ensure consistent box-sizing and prevent accidental horizontal overflow
+   - make images scale inside their containers
+   --------------------------- */
+*, *::before, *::after {
+  box-sizing: border-box; /* safer for responsive sizing */
+}
+
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%; /* prevent iOS font auto-scaling surprises */
+}
+
+/* Prevent accidental horizontal scroll from marginal overflows */
+body {
+  overflow-x: hidden;
+}
+
+/* Make images and common logo elements responsive without changing visual fit */
+img,
+.card-img,
+#fotoDefault,
+#logo,
+#logopequena,
+.avatar-item img,
+.cardUniversidade img,
+.cardCurso img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover; /* preserves cropping intent while allowing scaling */
+}
+
+/* Ensure card internals can shrink properly (avoid min-width overflow) */
+.cardUniversidade-header, .cardCurso-header, #nomes, .cardUniversidade-body, .cardCurso-body {
+  min-width: 0;
+}
+
+/* Utility: keep long inline text wrapping when needed on narrow viewports */
+.cardUniversidade-header #nome,
+.cardCurso-titulo,
+.cardUniversidade-row,
+.cardCurso-row {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* ---------------------------
+   Very small phones: under 360px
+   - reduce large paddings/margins only where needed
+   - stack main cards to nearly full width
+   --------------------------- */
+@media (max-width: 359px) {
+  /* Slightly reduce base font scaling here so UI fits naturally */
+  html { font-size: 14px; }
+
+  /* Header: allow items to wrap and reduce large gaps */
+  #headerItems, #itensHeader { display:flex; flex-wrap:wrap; gap:8px; align-items:center; }
+  #headerLinks { gap: 12px; }
+  #logopequena { margin-left: 8px; height:44px; }
+
+  /* Cards: make them use almost full width while preserving original look */
+  .cardUniversidade, .cardCurso {
+    width: 94%;
+    margin: 12px auto;
+  }
+
+  /* Reduce card header padding to keep content visible */
+  .cardUniversidade-header, .cardCurso-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  /* Login/registration panels: nearly full width on tiny screens */
+  #div_login, #div_login, #card-detalhe, #cardSubareaPrincipal { width: 96% !important; margin: 12px auto !important; }
+
+  /* Ensure carousels remain horizontally scrollable but don't create page overflow */
+  .cards-carousel { padding-left: 8px; padding-right: 8px; overflow-x: auto; }
+}
+
+/* ---------------------------
+   Regular phones: 360–480px
+   - main phone size adjustments
+   --------------------------- */
+@media (min-width: 360px) and (max-width: 480px) {
+  html { font-size: 15px; }
+
+  #headerLinks { gap: 18px; }
+  #logopequena { height:48px; margin-left: 12px; }
+
+  /* Cards are slightly narrower than full width so spacing remains consistent */
+  .cardUniversidade, .cardCurso { width: 88%; margin: 18px auto; }
+  .cardUniversidade-header, .cardCurso-header { padding-left: 14px; padding-right: 14px; }
+
+  /* Make cards container center content on phones */
+  #cards-container { justify-content: center; }
+
+  /* Grid lists become single-column to avoid tiny columns */
+  #cursoSubarea-list, #cursos-list, #campi-list, #subarea-list { grid-template-columns: repeat(1, 1fr); width: 100%; }
+
+  /* Keep interactive areas tappable: ensure buttons keep usable size */
+  .button, .btnVerMaisArea { padding: 8px 18px; height: 2.75rem; }
+}
+
+/* ---------------------------
+   Large phones / phablets: 480–768px
+   - allow two-column cards where possible
+   - carousels show more of each card
+   --------------------------- */
+@media (min-width: 481px) and (max-width: 768px) {
+  html { font-size: 15.5px; }
+
+  /* Cards: allow two-up layout in the container */
+  #cards-container { justify-content: center; gap: 20px; }
+  .cardUniversidade, .cardCurso { flex: 0 0 48%; max-width: 48%; width: 48%; margin: 18px auto; }
+
+  /* Carousels: allow horizontal scrolling and show partial neighboring cards */
+  .cards-carousel { overflow-x: auto; padding-left: 12px; padding-right: 12px; }
+  .cards-carousel .cardUniversidade { flex: 0 0 300px; max-width: 300px; }
+
+  /* Header spacing */
+  #headerLinks { gap: 24px; }
+
+  /* Keep panels comfortable width on tablets/large phones */
+  #div_login, #card-detalhe, #cardSubareaPrincipal { width: 72% !important; }
+}
+
+/* ---------------------------
+   Small tablets: 768–900px
+   - tablet portrait adjustments
+   - ensure 2-3 columns where it makes sense
+   --------------------------- */
+@media (min-width: 768px) and (max-width: 899px) {
+  html { font-size: 16px; }
+
+  /* Cards: 40-45% allows two columns with breathing room */
+  .cardUniversidade, .cardCurso { flex: 0 0 40%; max-width: 40%; width: 40%; margin: 26px auto; }
+
+  /* Reduce header links gap to keep things aligned */
+  #headerLinks { gap: 28px; }
+
+  /* Grid lists: two columns where appropriate */
+  #cursoSubarea-list, #cursos-list, #campi-list { grid-template-columns: repeat(2, 1fr); }
+
+  /* Panels and login remain comfortable */
+  #div_login, #card-detalhe { width: 56% !important; }
+}
+
+/* ---------------------------
+   Tablets / small laptops: 900–1024px
+   - gently scale to more desktop-like layout
+   --------------------------- */
+@media (min-width: 900px) and (max-width: 1024px) {
+  html { font-size: 16px; }
+
+  /* Cards: restore desktop card width but allow shrinking */
+  .cardUniversidade, .cardCurso { width: 370px; max-width: 92%; margin: 32px auto; }
+
+  /* Header and nav spacing tuned for medium screens */
+  #headerLinks { gap: 34px; }
+  #headerItems { width: 95%; }
+
+  /* Panels: two-column style where the page provides it */
+  #div_login, #card-detalhe { width: 48% !important; }
+}
+
+/* ---------------------------
+   Laptops: 1024–1366px
+   - intended desktop card widths, maintain layout
+   --------------------------- */
+@media (min-width: 1024px) and (max-width: 1366px) {
+  html { font-size: 16px; }
+
+  /* Use the intended fixed card width but keep container centered */
+  .cardUniversidade, .cardCurso { width: 370px; max-width: 100%; margin: 36px auto; }
+  #cards-container { justify-content: flex-start; }
+
+  /* Header spacing comfortable on laptop */
+  #logopequena { margin-left: 20px; }
+  #headerLinks { gap: 42px; }
+
+  /* Carousels: restore desktop padding */
+  .cards-carousel { padding: 24px 20px; }
+}
+
+/* ---------------------------
+   Desktops / widescreens: >1366px
+   - no major changes; ensure page does not overflow
+   --------------------------- */
+@media (min-width: 1367px) {
+  html { font-size: 16px; }
+
+  .cards-carousel { padding: 32px 40px; }
+}
+
+/* ---------------------------
+   Small helpers for specific overflow cases
+   - these rules are intentionally minimal and narrowly targeted
+   --------------------------- */
+
+/* Avoid header elements forcing horizontal scroll when text is long */
+#headerLinks a, #partes > a, .contactInfo > a { white-space: nowrap; }
+#headerItems { max-width: 100%; }
+
+/* Ensure modals / boxes center and fit in small screens (commented to show intent) */
+.box, .conteudo-box { max-width: 96vw; box-sizing: border-box; }
+
+/* Keep paragraph readable in narrow columns used on some pages */
+.sobre-container, #divCursoSubareaTitulo { width: 95%; max-width: 960px; margin-left: auto; margin-right: auto; }
+
+/* End of responsive.css */

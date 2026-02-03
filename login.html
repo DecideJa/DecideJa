@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>DecideJá - Registro</title>
+    <link rel="stylesheet" href="css/mainStyle.css">
+    <link rel="stylesheet" href="css/login-register.css">
+
+    <!-- Latest compiled JavaScript OBS: colocar no final do arquivo html -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Lexend+Deca:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+</head>
+
+<body>
+    <!-- Tela de Login -->
+    <div id="loginScreen" class="screen active">
+        <div class="left-panel">
+            <div class="login-card">
+                <div class="logo">
+                    <img src="imagens/logopequena.png" alt="logopequena">
+                    <span>DecideJá</span>
+                </div>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginEmail">E-mail</label>
+                        <input type="email" id="loginEmail" name="email" placeholder="email@email.email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginSenha">Senha</label>
+                        <div class="input-with-icon">
+                            <input type="password" id="loginSenha" name="senha" placeholder="Digite sua senha" required>
+                            <i class="fa fa-eye toggle-eye" data-target="loginSenha" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                    <div class="forgot-password" style="text-align:right; margin-bottom:16px;">
+                        <a href="#" onclick="showScreen('recoverScreen'); return false;">Esqueci a senha</a>
+                    </div>
+                    <button type="submit" class="login-btn outlined" id="btnLogin" data-id="">Login</button>
+                </form>
+                <div class="register-link">
+                    <a href="#" onclick="showScreen('registerScreen'); return false;">Ainda não possui uma conta?
+                        Cadastre-se</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <!-- Tela de Registro -->
+    <div id="registerScreen" class="screen">
+        <div class="left-panel">
+            <div class="register-card">
+                <div class="logo">
+                    <img src="imagens/logopequena.png" alt="logopequena" >
+                    <span>DecideJá</span>
+                </div>
+                <h2>Que tipo de aluno você é?</h2>
+
+                <div class="type-buttons">
+                    <button class="type-btn active" data-type="interessado">Interessado</button>
+                    <button class="type-btn" data-type="graduando">Graduando</button>
+
+                </div>
+
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="nome">Nome Completo:</label>
+                        <input type="text"  id="nome" name="nome" placeholder="Digite seu nome completo" required >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerEmail">Email:</label>
+                        <input type="email" id="registerEmail" name="email" placeholder="email@email.email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="registerSenha">Senha:</label>
+                        <div class="input-with-icon">
+                            <input type="password" id="registerSenha" name="senha" placeholder="Digite sua senha" required>
+                            <i class="fa fa-eye toggle-eye" data-target="registerSenha" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirmSenha">Confirmar Senha:</label>
+                        <div class="input-with-icon">
+                            <input type="password" id="confirmSenha" name="confirmSenha" placeholder="Confirme sua senha" required>
+                            <i class="fa fa-eye toggle-eye" data-target="confirmSenha" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group extra-field" id="universidade-field">
+                        <label for="loginUniversidade">Universidade em que estuda:</label>
+                        <input type="text" id="loginUniversidade" name="universidade" placeholder="Nome da Universidade">
+                    </div>
+
+
+                    <button type="submit" class="register-btn" id="btnRegistrar" data-id="">Registrar</button>
+                </form>
+
+                <div class="register-link">
+                    <a href="#" onclick="showScreen('loginScreen'); return false;">Já tem uma conta? Faça login!</a>
+                    <a href="inicio.html">Deseja continuar anonimamente?</a>
+                </div>
+            </div>
+        </div>
+       
+        </div> 
+    </div>
+
+    <!-- Tela de Recuperação de Senha -->
+    <div id="recoverScreen" class="screen">
+        <div class="left-panel">
+            <div class="recover-card">
+                <h2>Esqueci minha Senha</h2>
+
+                <form id="recoverForm">
+                    <div class="form-group">
+                        <label for="recoverEmail">Email:</label>
+                        <input type="email" id="recoverEmail" name="email" required>
+                    </div>
+
+                    <p style="font-size: 14px; color: #666; margin-bottom: 20px;">
+                        Fique tranquilo, enviaremos um link de recuperação para o seu email!
+                    </p>
+
+                    <button type="submit" class="recover-btn">Enviar Link de Recuperação</button>
+                </form>
+
+                <div class="register-link">
+                    <a href="#" onclick="showScreen('loginScreen'); return false;">Voltar para Login</a>
+                </div>
+            </div>
+        </div>
+       
+    </div>
+    <script type="module" src="js/login-register.js"></script>
+</body>
+
+</html>

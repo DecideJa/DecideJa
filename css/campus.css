@@ -1,0 +1,401 @@
+#card-detalhe {
+    width: 70%;
+    margin: 0 auto;
+    /* centraliza horizontalmente */
+    align-items: center;
+    justify-content: center;
+    padding: 12px 0;
+}
+
+#nomeCampus {
+    color: white;
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+.subtitulo{
+    font-size: 15px;
+    color: gray;
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    font-weight: 600;
+}
+.dadoCampus{
+    font-size: 18px;
+    color:  #051933;
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    font-weight: 600;
+}
+.cardcampus {
+    width: 100%;
+    min-height: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    border: 1px solid #ddd;
+
+}
+
+#topoCardCampus {
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    margin-bottom: 10px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: #092e5e;
+    height: 40%;
+    color: white;
+
+}
+
+#todoscardcampus {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 8px 0;
+}
+
+.colunaDadosCampus{
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: left;
+
+}
+
+/* Garantir que #campi-list dentro de #todoscardcampus use o grid já definido */
+#todoscardcampus>#campi-list {
+    width: 100%;
+}
+#campustitulo{
+    margin-top: 20px;
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    font-weight: 600;
+    color: #051933;
+}
+
+#campusSubtitulo{
+  color: gray;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#localCampus {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    gap: 10px;
+    margin-top: auto;
+    padding: 15px;
+
+}
+
+#icone {
+    font-size: 35px;
+    color:#092e5e;
+    
+}
+#detalhesCardCampus {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 16px;
+    color: gray;
+
+}
+#infoCampus {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 5px;
+    width: 70%;
+}
+
+#botaoCardCampus {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-right: 20px;
+
+}
+
+#nomeUni {
+    font-size: 20px;
+    color: whitesmoke;
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    font-weight: 500;
+    margin-top: -10px;
+}
+
+#iconeCardCampus {
+    font-size: 100px;
+    width: 100px;
+    text-align: center;
+    padding: 5px;
+}
+
+.rating:not(:checked) > input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked) > label {
+  float: right;
+  cursor: pointer;
+  font-size: 35px;
+  color: #666;
+}
+
+.rating:not(:checked) > label:before {
+  content: '★';
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+  color: #e58e09;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+  color: #ff9e0b;
+}
+
+.rating > input:checked ~ label {
+  color: #ffa723;
+}
+#stars{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    padding: 0px;
+    gap: 20px;
+}
+
+.button {
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  height: 2.5rem;
+  padding: 0 2rem;
+  border-radius: 15px;
+  background:#ff9e0b;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border: 2px solid #ff9e0b; /* Adiciona uma borda com a cor original */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+  color: #ff9e0b;
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    #ff9e0b 10.8%,
+    #ff9e0b 94.3%
+  );
+  transition: all 0.475s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+#containerInfraestrutura{
+    
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 18px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se necessário */
+}
+
+.cardInfraestrutura{
+    width: 23%;
+    min-height: 100%;
+    box-sizing: border-box;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+  
+}
+
+.iconeInfra{
+  background-color: #e7e7e7;
+  border-radius: 10px;
+  width: 50px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  height: 40px;
+    font-size: 25px;
+    color:#092e5e;
+}
+
+.tituloCardInfra{
+    font-size: 18px;
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    font-weight: 600;
+    color: #051933;
+}
+
+.infoCardInfra{
+    font-size: 15px;
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    font-weight: 500;
+    color: gray;
+    text-align: center;
+}
+
+.cardcurso, .cardCurso {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #dbe0e6;
+  box-shadow: 0 6px 18px rgba(8,20,40,0.06);
+  padding: 16px;
+  box-sizing: border-box;
+  color: #051933;
+  cursor: pointer;
+}
+
+.cardcurso:hover, .cardCurso:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.tag-grau:hover{
+  background-color:#092e5e;
+  color:white;
+}
+
+
+.cardcurso-header, .cardCurso .cardcurso-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.cardcurso-title, #NomeCardCurso {
+  font-size: 18px;
+  font-weight: 700;
+  color: #051933;
+}
+
+.cardcurso-bookmark {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: transparent;
+  
+}
+
+.cardcurso-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardcurso-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: #6b7280; /* gray-ish */
+}
+
+.cardcurso-label {
+  font-weight: 600;
+  color: #6b7280; /* label color */
+}
+
+.cardcurso-value {
+  color: #334155; /* darker for values */
+  font-weight: 500;
+}
+
+.cardcurso-tags {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tag-grau {
+  background: #eef6ff;
+  color: #075985;
+  border: 1px solid #dbeefb;
+}
+
+/* responsive: ensure course list can layout nicely when used in grids */
+#cursos-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
+  #cursos-list { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 600px) {
+  #cursos-list { grid-template-columns: 1fr; }
+}
+

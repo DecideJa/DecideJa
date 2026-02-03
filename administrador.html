@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DecideJá - ADM</title>
+    
+    <link rel="stylesheet" href="css/mainStyle.css">
+    <link rel="stylesheet" href="css/administrador.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="module" src="js/adm.js"></script>
+</head>
+
+<body>
+    <header id="header">
+        <div id="headerItems">
+            <div id="logo-titulo">
+                <img id="logopequena" src="imagens/logopequenabranca.png" alt="Logo DecideJá">
+                <span id="titulo">DecideJá</span>
+            </div>
+
+            <div id="headerLinks">
+                <a href="inicio.html" class="aLink">Início</a>
+                <a href="busca.html" class="aLink">Busca</a>
+                
+                <a href="sobre.html" class="aLink">Sobre Nós</a>
+            </div>
+
+            <img src="https://kkkotkknftwukirkabol.supabase.co/storage/v1/object/sign/usuario/padrao.jpg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV84OWY2Yzc2Ny0xNTMzLTRlNDgtYThmNi03OTU5ZmM1OWNkYjQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJ1c3VhcmlvL3BhZHJhby5qcGciLCJpYXQiOjE3NjA1NTQxMjQsImV4cCI6NDg4MjYxODEyNH0.ZdVHx-ra2jl2hjxSz0EixjUd72ubZ6M8ycfT3Q2tZyc"
+                alt="" id="usuario">
+
+            <!-- <div id="headerInfo">
+                <a href="login.html" class="btn-outline">Entrar</a>
+                <a href="registro.html" class="btn-outline">Cadastre-se</a>
+            </div> -->
+
+        </div>
+    </header>
+
+    <main>
+        <main>
+            <!-- Escolher tabela -->
+            <div>
+                <label for="tabelaSelect">Escolha a tabela:</label>
+                <select id="tabelaSelect">
+                    <option value="">Selecione</option>
+                    <option value="universidade">Universidade</option>
+                    <option value="campus">Campus</option>
+                    <option value="curso">Curso</option>
+                    <option value="usuario">Usuário</option>
+                    <option value="comentario">Comentário</option>
+                    <option value="historico_consulta">Histórico Consulta</option>
+                    <option value="categoria">Categoria</option>
+                    <option value="subarea">Subárea</option>
+                    <option value="area">Área</option>
+                    <option value="grau">Grau</option>
+                    <option value="municipio">Município</option>
+                    <option value="uf">UF</option>
+                    <option value="regiao">Região</option>
+                </select>
+            </div>
+        
+            <!-- Aqui vai aparecer a tabela de dados -->
+            <div id="tabelaContainer" ></div>
+        
+            <!-- Aqui vai aparecer o formulário dinâmico -->
+            <div id="formContainer" ></div>
+        </main>
+        
+    </main>
+
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,141 @@
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+ }
+ 
+ button.learn-more {
+  width: 9rem;
+  height: auto;
+ }
+ 
+ button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 2.5rem;   /* círculo menor */
+  height: 2.5rem;
+  background: #092e5e;  /* nova cor */
+  border-radius: 1.625rem;
+}
+ 
+ button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+ }
+ 
+ button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+ }
+ 
+ button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+ }
+ 
+ button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.6rem 0;   /* menos padding */
+  margin: 0 0 0 2.5rem;
+  color: #092e5e;
+  font-weight: 700;     /* um pouco mais leve */
+  font-size: 0.8rem;   /* fonte menor */
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+ button:hover .circle {
+  width: 100%;
+ }
+ 
+ button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+ }
+ 
+ button:hover .button-text {
+  color: #fff;
+ }
+
+/* botao avaliar*/
+
+
+ .button {
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  height: 2.5rem;
+  padding: 0 2rem;
+  border-radius: 15px;
+  background:#ff9e0b;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border: 2px solid #ff9e0b; /* Adiciona uma borda com a cor original */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+  color: #ff9e0b;
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+  
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(
+    82.3deg,
+    #ff9e0b 10.8%,
+    #ff9e0b 94.3%
+  );
+  transition: all 0.475s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}

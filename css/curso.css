@@ -1,0 +1,1022 @@
+/* curso.css
+   Page-specific styles for "Curso" page.
+   Built to match the site's global design system (colors, spacing, radii, shadows, fonts).
+   - Do not change global rules.
+   - Follows existing breakpoints: 1024px, 768px, 600px, 480px.
+*/
+
+/* Import comment styles used on universidade page so curso matches exactly */
+@import url('comentario.css');
+
+/* ------------------------------
+   Base container & page layout
+   ------------------------------ */
+#card-detalhe {
+	width: 70%;
+	margin: 0 auto;
+	padding: 18px 0;
+	box-sizing: border-box;
+	font-family: 'Inter', sans-serif; /* consistent site font */
+	color: #051933; /* primary text color from site */
+}
+
+/* Small utility wrapper used on this page */
+.course-row {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+	box-sizing: border-box;
+}
+
+/* Stack layout on small screens */
+@media (max-width: 1024px) {
+	#card-detalhe {
+		width: 85%;
+	}
+	.course-row {
+		flex-direction: column;
+	}
+}
+
+/* ------------------------------
+   Course detail main card
+   (matches .cardcurso visual language)
+   ------------------------------ */
+.cardcurso-detalhe {
+	background: #fff;
+	border-radius: 15px;            /* same radii used across site */
+	border: 1px solid #dbe0e6;
+	box-shadow: 0 6px 18px rgba(8, 20, 40, 0.06);
+	overflow: hidden;
+	box-sizing: border-box;
+}
+
+/* Header area: bold title + meta tags (dark-blue header like other cards) */
+.cardcurso-detalhe-header {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+	padding: 26px 28px;
+	background-color: #092e5e;     /* site primary dark */
+	color: #ffffff;
+	border-radius: 15px 15px 0 0;   /* keep top rounded */
+}
+
+.cardcurso-detalhe-header h1 {
+	margin: 0;
+	font-family: 'Inter', sans-serif;
+	font-weight: 700;
+	font-size: 36px;                /* prominent, consistent with card headings */
+	line-height: 1.05;
+}
+
+/* meta row (area / subarea / grau) - pill-like items consistent with .tag */
+.cardcurso-detalhe-header .meta {
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+}
+
+.cardcurso-detalhe-header .meta-item {
+	background: rgba(255,255,255,0.08);
+	color: #ffffff;
+	padding: 6px 10px;
+	border-radius: 999px;
+	font-weight: 600;
+	font-size: 14px;
+}
+
+/* ------------------------------
+   Course body: description, details, actions
+   ------------------------------ */
+.cardcurso-detalhe-body {
+	display: flex;
+	gap: 24px;
+	padding: 22px 28px;
+	box-sizing: border-box;
+	align-items: flex-start;
+	flex-wrap: wrap;
+}
+
+/* Left column: main description */
+.course-main {
+	flex: 1 1 60%;
+	min-width: 280px;
+}
+
+/* Right column: info boxes / quick facts */
+.course-aside {
+	flex: 0 0 320px;
+	min-width: 240px;
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+}
+
+/* Description block - uses same typography and spacing as other content areas */
+.course-description {
+	background: transparent; /* keep background consistent with site (white card background already present) */
+	color: #334155;          /* secondary text color used elsewhere */
+	font-size: 17px;
+	line-height: 1.6;
+	padding: 4px 0;
+}
+
+/* Small headings inside description/details */
+.course-section-title {
+	font-weight: 700;
+	color: #051933;
+	margin: 12px 0 8px;
+	font-size: 18px;
+}
+
+/* ------------------------------
+   Standardized info box (matches .cardInfraestrutura / small cards)
+   - border-radius, padding, shadow and box-sizing follow site patterns
+   ------------------------------ */
+.info-box {
+	background-color: #fff;
+	border-radius: 12px;
+	border: 1px solid #e6eef8;
+	box-shadow: 0 4px 8px rgba(8, 20, 40, 0.04);
+	padding: 14px 16px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+/* Title and value pairing inside info-box */
+.info-box .label {
+	font-size: 13px;
+	color: #6b7280;
+	font-weight: 600;
+}
+
+.info-box .value {
+	font-size: 16px;
+	color: #051933;
+	font-weight: 600;
+}
+
+/* Keep buttons aligned in aside */
+.course-aside .actions {
+	display: flex;
+	gap: 10px;
+	justify-content: flex-start;
+}
+
+/* ------------------------------
+   Resources / modules list
+   - styled like the site cards, arranged in responsive grid
+   ------------------------------ */
+.course-resources {
+	margin-top: 20px;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 16px;
+}
+
+/* individual resource / module card */
+.resource-card {
+	background: #fff;
+	border-radius: 12px;
+	border: 1px solid #dbe0e6;
+	box-shadow: 0 6px 18px rgba(8, 20, 40, 0.06);
+	padding: 12px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.resource-card .resource-title {
+	font-weight: 700;
+	color: #051933;
+	font-size: 15px;
+}
+
+.resource-card .resource-meta {
+	color: #6b7280;
+	font-size: 13px;
+}
+
+/* Resources grid responsiveness mirrors other pages */
+@media (max-width: 1024px) {
+	.course-resources {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.course-aside {
+		flex: 0 0 auto;
+		width: 100%;
+	}
+}
+
+@media (max-width: 600px) {
+	.course-resources {
+		grid-template-columns: 1fr;
+	}
+	.cardcurso-detalhe-header h1 {
+		font-size: 28px;
+	}
+}
+
+/* ------------------------------
+   Buttons - "Back" / "Mais cursos"
+   - use the project's button language: keep same radii, weight and color tokens
+   - this selector is page-scoped to avoid overriding global button styles
+   ------------------------------ */
+#card-detalhe .back-button {
+	display: inline-block;
+	background: #ff9e0b;          /* same orange used for .button */
+	color: #ffffff;
+	border: 2px solid #ff9e0b;
+	padding: 8px 14px;
+	border-radius: 12px;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+	box-sizing: border-box;
+	transition: transform 0.2s ease;
+	font-size: 14px;
+}
+
+#card-detalhe .back-button:hover {
+	transform: translateY(-2px);
+}
+
+/* Secondary action button variant (dark) to match .learn-more visual language */
+#card-detalhe .primary-action {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	background: #092e5e;
+	color: #ffffff;
+	padding: 8px 12px;
+	border-radius: 12px;
+	border: none;
+	font-weight: 700;
+	cursor: pointer;
+	font-size: 14px;
+}
+
+/* ------------------------------
+   Small helpers and accessibility
+   ------------------------------ */
+.meta, .tags {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.meta .tag, .tags .tag {
+	background: #eef6ff;
+	color: #075985;
+	padding: 4px 10px;
+	border-radius: 999px;
+	font-weight: 600;
+	border: 1px solid #dbeefb;
+	font-size: 14px;
+}
+
+/* ensure images / icons inside course page scale properly */
+#card-detalhe img, .cardcurso-detalhe img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+	object-fit: cover;
+}
+
+/* Prevent accidental horizontal overflow on small devices */
+@media (max-width: 480px) {
+	#card-detalhe {
+		width: 95%;
+		padding: 6px 0;
+	}
+
+	.cardcurso-detalhe-body {
+		padding: 14px;
+	}
+
+	.cardcurso-detalhe-header {
+		padding: 18px;
+	}
+
+	.cardcurso-detalhe-header h1 {
+		font-size: 24px;
+	}
+
+	.course-aside {
+		order: 2;
+	}
+
+	.course-main {
+		order: 1;
+	}
+}
+
+/* ------------------------------
+   Finish: small visual alignment tweaks
+   - keep spacing and sizes consistent with other page files
+   ------------------------------ */
+.course-footer-note {
+	margin-top: 18px;
+	color: #6b7280;
+	font-size: 14px;
+}
+
+/* Ensure lists inside description follow site text rules */
+.course-description ul,
+.course-description ol {
+	padding-left: 20px;
+	margin-top: 8px;
+	color: #334155;
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+/* ------------------------------------------------------------------
+   Campus list and small card styles (copied/adapted from cursoCampus.css)
+   Ensures campus cards and lists match the project's visual language
+   ------------------------------------------------------------------ */
+#divcampusTitulo {
+	margin-top: 30px;
+}
+
+#campustitulo {
+	font-family: 'Inter';
+	font-weight: 600;
+	color: #051933;
+}
+
+#campusSubtitulo {
+	color: gray;
+	font-size: 15px;
+	font-weight: 500;
+}
+
+#campi-list {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 20px;
+	margin-top: 16px;
+}
+
+.cardcampus {
+	width: 100%;
+	background-color: white;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	border-radius: 15px;
+	border: 1px solid #ddd;
+	overflow: hidden;
+}
+
+.cardcampus:hover {
+	box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+	transform: translateY(-5px);
+}
+
+#topoCardCampus {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+	padding: 16px 20px;
+	background-color: #092e5e;
+	color: white;
+}
+
+#nomeCampus {
+	font-weight: 600;
+	color: whitesmoke;
+}
+
+#detalhesCardCampus {
+	display: flex;
+	flex-wrap: wrap;
+	padding: 10px 20px 20px;
+	gap: 0;
+}
+
+#localCampus {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	width: 50%;
+	padding: 12px;
+	box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+	#campi-list {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 600px) {
+	#campi-list {
+		grid-template-columns: 1fr;
+	}
+	.cardcampus {
+		min-height: 110px;
+	}
+}
+
+#card-detalhe {
+  width: 70%;
+  margin: 0 auto;
+  /* centraliza horizontalmente */
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+}
+
+/* ==========================
+  Course card styles
+  ========================== */
+.cardcurso,
+.cardCurso {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #dbe0e6;
+  box-shadow: 0 6px 18px rgba(8, 20, 40, 0.06);
+  padding: 16px;
+  box-sizing: border-box;
+  color: #051933;
+
+}
+
+.cardcurso:hover,
+.cardCurso:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.tag-grau:hover {
+  background-color: #092e5e;
+  color: white;
+}
+
+
+.cardcurso-header,
+.cardCurso .cardcurso-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.cardcurso-title,
+#NomeCardCurso {
+  font-size: 18px;
+  font-weight: 700;
+  color: #051933;
+}
+
+.cardcurso-bookmark {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: transparent;
+
+}
+
+.cardcurso-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cardcurso-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 14px;
+  color: #6b7280;
+  /* gray-ish */
+}
+
+.cardcurso-label {
+  font-weight: 600;
+  color: #6b7280;
+  /* label color */
+}
+
+.cardcurso-value {
+  color: #334155;
+  /* darker for values */
+  font-weight: 500;
+}
+
+.cardcurso-tags {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.tag {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.tag-grau {
+  background: #eef6ff;
+  color: #075985;
+  border: 1px solid #dbeefb;
+}
+
+/* responsive: ensure course list can layout nicely when used in grids */
+#cursos-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 16px;
+}
+
+@media (max-width: 1024px) {
+  #cursos-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #cursos-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* small helper to target only the 'Área:' label if an id was emitted */
+#area-label-example,
+[id^="area-label-"] {
+  font-weight: 600;
+  color: #6b7280;
+}
+
+/* Carousel styles for cursos */
+.carousel {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.carousel-track-wrapper {
+  overflow: hidden;
+  flex: 1 1 auto;
+}
+
+.carousel-track {
+  display: flex;
+  width: 100%;
+  transition: transform 420ms cubic-bezier(0.22, 0.84, 0.36, 1);
+}
+
+.carousel-page {
+  width: 100%;
+  flex: 0 0 100%;
+  box-sizing: border-box;
+  padding: 4px 0;
+}
+
+.carousel-page .cardcurso,
+.carousel-page .cardCurso {
+  /* ensure card fills the grid cell */
+  width: 100%;
+}
+
+.carousel-prev,
+.carousel-next {
+  background: #092e5e;
+  color: white;
+  border: 1px solid #e6eef8;
+  width: 500px;
+  height: 36px;
+  border-radius: 8px;
+  font-size: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 50px;
+  max-height: 50px;
+
+
+}
+
+.carousel-prev[disabled],
+.carousel-next[disabled] {
+  opacity: 0.4;
+  cursor: default;
+}
+
+/* Responsive tweaks */
+@media (max-width: 1024px) {
+  .carousel-page {
+    min-width: 100%;
+  }
+
+  .carousel-page {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .carousel-page {
+    grid-template-columns: 1fr;
+  }
+}
+
+#NomeCardCurso {
+  font-size: 18px;
+  font-weight: 500;
+  color: #051933;
+}
+
+#nomeCampus {
+  font-weight: 500;
+  font-size: 18px;
+}
+
+.cardcampus:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+.carduni {
+  width: 100%;
+  background-color: #092e5e;
+  border-radius: 26px;
+  padding: 50px;
+  color: white;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.fa-solid {
+  padding: 5px;
+}
+
+#tituloUni {
+  color: white;
+  font-weight: 700;
+  font-size: 50px;
+}
+
+#nomeUni {
+  font-size: 25px;
+  font-weight: 400;
+}
+
+#detalhesUni {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 20px;
+  font-size: 20px;
+  margin: 0px;
+
+}
+
+#InfoUni {
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  gap: 30px;
+}
+
+#divcampusTitulo {
+
+  margin-top: 25px;
+}
+
+#campustitulo {
+  font-weight: 600;
+  color: #051933;
+}
+
+.cardcampus {
+  width: 100%;
+  min-height: 128px;
+  box-sizing: border-box;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 15px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+}
+
+/* Layout para listar os campi em 3 colunas */
+#campi-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 16px;
+}
+
+/* Responsividade: 2 colunas em largura média, 1 coluna em mobile */
+@media (max-width: 1024px) {
+  #campi-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  #campi-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cardcampus {
+    min-height: 110px;
+  }
+}
+
+#campusSubtitulo {
+  color: gray;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#topoCardCampus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  gap: 10px;
+  margin-bottom: 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-color: #092e5e;
+  height: 40%;
+  color: white;
+
+}
+
+#todoscardcampus {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 0;
+}
+
+/* Garantir que #campi-list dentro de #todoscardcampus use o grid já definido */
+#todoscardcampus>#campi-list {
+  width: 100%;
+}
+
+#detalhesCardCampus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 10px;
+  margin-left: 20px;
+  font-size: 16px;
+  color: gray;
+
+}
+
+#botaoCardCampus {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-right: 20px;
+
+}
+
+#iconeCardCampus {
+  font-size: 22px;
+  width: 28px;
+  text-align: center;
+  padding: 5px;
+}
+
+#avaliacaomedia {
+  color: white;
+  font-size: 25px;
+}
+
+#stars {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  padding: 0px;
+  gap: 20px;
+}
+
+#cursosSubtitulo {
+  color: gray;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+#cursostitulo {
+  font-weight: 600;
+  color: #051933;
+  margin-top: 25px;
+}
+
+
+/* From Uiverse.io by andrew-demchenk0 */
+.rating:not(:checked)>input {
+  position: absolute;
+  appearance: none;
+}
+
+.rating:not(:checked)>label {
+  float: right;
+  cursor: pointer;
+  font-size: 35px;
+  color: #666;
+}
+
+.rating:not(:checked)>label:before {
+  content: '★';
+}
+
+.rating>input:checked+label:hover,
+.rating>input:checked+label:hover~label,
+.rating>input:checked~label:hover,
+.rating>input:checked~label:hover~label,
+.rating>label:hover~input:checked~label {
+  color: #e58e09;
+}
+
+.rating:not(:checked)>label:hover,
+.rating:not(:checked)>label:hover~label {
+  color: #ff9e0b;
+}
+
+.rating>input:checked~label {
+  color: #ffa723;
+}
+
+
+/*botao ver mais*/
+
+/* From Uiverse.io by cssbuttons-io */
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button.learn-more {
+  width: 9rem;
+  height: auto;
+}
+
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 2.5rem;
+  /* círculo menor */
+  height: 2.5rem;
+  background: #092e5e;
+  /* nova cor */
+  border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.6rem 0;
+  /* menos padding */
+  margin: 0 0 0 2.5rem;
+  color: #092e5e;
+  font-weight: 700;
+  /* um pouco mais leve */
+  font-size: 0.8rem;
+  /* fonte menor */
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+button:hover .circle {
+  width: 100%;
+}
+
+button:hover .circle .icon.arrow {
+  background: #fff;
+  transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+  color: #fff;
+}
+
+/* botao avaliar*/
+
+
+.button {
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+  height: 2.5rem;
+  padding: 0 2rem;
+  border-radius: 15px;
+  background: #ff9e0b;
+  background-size: 400%;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border: 2px solid #ff9e0b;
+  /* Adiciona uma borda com a cor original */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
+  color: #ff9e0b;
+}
+
+.button-content {
+  position: relative;
+  z-index: 1;
+}
+
+.button::before {
+
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  width: 100%;
+  height: inherit;
+  border-radius: inherit;
+  background: linear-gradient(82.3deg,
+      #ff9e0b 10.8%,
+      #ff9e0b 94.3%);
+  transition: all 0.475s;
+}
+
+.button:hover {
+  transform: scale(1.1);
+}
+
+/* Estilo básico da página */
+
+
+
+
+/* CSS COMENTARIOS */

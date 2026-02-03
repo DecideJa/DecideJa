@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+
+    <title>DecideJá - Registro</title>
+    <link rel="stylesheet" href="css/mainStyle.css">
+    <link rel="stylesheet" href="css/registro.css">
+
+    <!-- Latest compiled JavaScript OBS: colocar no final do arquivo html -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Delius+Swash+Caps&family=Lexend+Deca:wght@100..900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    
+</head>
+
+<body>
+
+
+    <div id="div_login">
+        <div id="div_logotitulo">
+            <img id="logopequena" src="imagens/logopequenabranca.png">
+            <h1 style="font-size: 50px;">DecideJá</h1>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        <form id="login">
+            <div id="campoestudante">
+                <label style="margin-bottom:8px; display:block;">Tipo Estudante:</label>
+                <div id="campoestudante-options">
+                    <div>
+                        <input class="tipoEstudante" type="radio" id="grad" name="tipo">
+                        <label for="grad">Graduando</label>
+                    </div>
+                    <div>
+                        <input class="tipoEstudante" type="radio" id="inter" name="tipo">
+                        <label for="inter">Interessado</label>
+                    </div>
+                </div>
+            </div>
+
+            <label for="nome">Nome</label>
+            <input id="nome" type="text" placeholder="Digite seu nome completo...">
+            <br>
+            <label for="email">E-mail</label>
+            <input id="email" type="email" placeholder="Digite seu e-mail...">
+            <br>
+            <label for="senha">Senha:</label>
+            <div class="senha">
+                <input id="senha" type="password" placeholder="Digite sua senha...">
+                <i id="olho" class="fa fa-eye"></i>
+            </div>
+
+
+            <button type="submit" id="enviar" class="botao">Registrar</button>
+            <h2>Já tem uma conta?<a id="cadastre" class="und" class="botao" href="login.html">Login</a></h2>
+
+
+        </form>
+
+
+
+    </div>
+
+
+
+
+
+
+    <!-- <iframe id="mapa" src="https://www.google.com/maps/d/u/0/embed?mid=1dXxsA7wcLTPvFNs5cMd98znYjrrsyxI&ehbc=2E312F"
+        width="640" height="480"></iframe>  -->
+    <script src="js/registro.js"></script>
+    <script>
+        const SUPABASE_URL = 'https://kkkotkknftwukirkabol.supabase.co';
+        const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imtra290a2tuZnR3dWtpcmthYm9sIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTI3Nzk2MDIsImV4cCI6MjA2ODM1NTYwMn0.RvJEK16tej2O8uMbhmWwxEUSRDA0fSIZyxIVi5cs82U';
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+        form.addEventListener("submit", async function (e) {
+            e.preventDefault(); // Evita o envio padrão do formulário
+
+            // Validação simples
+            let valid = true;
+            [nome, email, senhaInput] = ['nome', 'email', 'senha'].map(id => document.getElementById(id));
+            if (!nome.value.trim() || !email.value.trim() || !senhaInput.value.trim()) {
+                alert("Por favor, preencha todos os campos.");
+                valid = false;
+            }
+
+            if (valid) {
+                const { data, error } = await supabase.auth.signUp({
+                    email: email.value.trim(),
+                    password: senhaInput.value.trim(),
+                    options: {
+                        data: {
+                            nome: nome.value.trim(),
+                            tipo: document.querySelector('input[name="tipo"]:checked').id
+                        }
+                    }
+                });
+
+                if (error) {
+                    alert("Erro no registro: " + error.message);
+                } else {
+                    alert("Registro realizado com sucesso! Faça o login.");
+                    window.location.href = "login.html";
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

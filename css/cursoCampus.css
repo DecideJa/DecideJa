@@ -1,0 +1,386 @@
+/* =============================================================================
+   CONTAINER PRINCIPAL DA PÁGINA DE DETALHES
+   ============================================================================= */
+#card-detalhe {
+    width: 70%;
+    margin: 0 auto;
+    padding: 12px 0;
+}
+
+/* =============================================================================
+   TÍTULOS E SUBTÍTULOS GENÉRICOS
+   ============================================================================= */
+#divcampusTitulo {
+    margin-top: 30px;
+}
+
+#campustitulo {
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #051933;
+}
+
+#campusSubtitulo {
+    color: gray;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+/* =============================================================================
+   CARD DO CAMPUS
+   ============================================================================= */
+.cardcampus {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    overflow: hidden; /* Contém os elementos arredondados do header */
+}
+
+.cardcampus:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+#topoCardCampus {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 30px;
+    background-color: #092e5e;
+    color: white;
+}
+
+#infoCampus {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex-grow: 1;
+}
+
+#nomeCampus h1 {
+    font-family: Inter;
+    font-weight: 700;
+    font-size: 24px;
+    margin: 0;
+}
+
+#nomeUni {
+    font-size: 17px;
+    color: whitesmoke;
+    font-family: 'Inter';
+    font-weight: 500;
+    margin-top: -5px;
+}
+
+#iconeCardCampus {
+    font-size: 60px; /* Reduzido um pouco para melhor proporção */
+    width: 60px;
+    text-align: center;
+}
+
+#stars {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+#avaliacaomedia {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+/* --- Botão de Avaliar --- */
+.button {
+    position: relative;
+    overflow: hidden;
+    height: 2rem;
+    padding: 0 2rem;
+    border-radius: 10px;
+    background: #ff9e0b;
+    color: #fff;
+    border: 2px solid #ff9e0b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: -1rem;
+    margin-left: 10px;
+}
+
+.button-content {
+    position: relative;
+    z-index: 1;
+}
+
+.button::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    background: linear-gradient(82.3deg, rgba(255, 255, 255, 0.2) 10.8%, rgba(255, 255, 255, 0.2) 94.3%);
+    transition: all 0.475s;
+}
+
+.button:hover::before {
+    transform: scaleX(1);
+}
+
+.button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* --- Estrelas de Avaliação --- */
+.rating:not(:checked) > input {
+    position: absolute;
+    appearance: none;
+}
+
+.rating:not(:checked) > label {
+    float: right;
+    cursor: pointer;
+    font-size: 25px; /* Ajustado para caber melhor */
+    color: #666;
+}
+
+.rating:not(:checked) > label:before {
+    content: '★';
+}
+
+.rating > input:checked ~ label {
+    color: #ffa723;
+}
+
+/* --- Detalhes do Campus (Local, Endereço, etc.) --- */
+#detalhesCardCampus {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+    padding: 10px 20px 20px;
+    gap: 0;
+}
+
+#localCampus {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 50%; /* Dois itens por linha */
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.colunaDadosCampus {
+    display: flex;
+    flex-direction: column;
+}
+
+.subtitulo {
+    font-size: 15px;
+    color: gray;
+    font-family: 'Inter';
+    font-weight: 600;
+}
+
+.dadoCampus {
+    font-size: 18px;
+    color: #051933;
+    font-family: 'Inter';
+    font-weight: 600;
+}
+
+#icone {
+    font-size: 30px;
+    color: #092e5e;
+    min-width: 30px; /* Garante alinhamento */
+}
+
+/* =============================================================================
+   SEÇÃO DE INFRAESTRUTURA
+   ============================================================================= */
+#containerInfraestrutura {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 18px;
+}
+
+.cardInfraestrutura {
+    width: calc(50% - 8px); /* Dois cards por linha com gap */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.iconeInfra {
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    width: 50px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    color: #092e5e;
+    flex-shrink: 0; /* Impede que o ícone encolha */
+}
+
+.tituloCardInfra {
+    font-size: 18px;
+    font-family: 'Inter';
+    font-weight: 600;
+    color: #051933;
+}
+
+.infoCardInfra {
+    font-size: 15px;
+    font-family: 'Inter';
+    font-weight: 500;
+    color: gray;
+}
+
+/* =============================================================================
+   CARD DO CURSO
+   ============================================================================= */
+.cardcurso {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #dbe0e6;
+    box-shadow: 0 6px 18px rgba(8, 20, 40, 0.06);
+    box-sizing: border-box;
+    color: #051933;
+    transition: all 0.3s ease;
+    overflow: hidden; /* Contém o header arredondado */
+    margin-bottom: 30px;
+}
+
+.cardcurso-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: #092e5e;
+    border-radius: 12px 12px 0 0; /* Arredonda só o topo */
+}
+
+.cardcurso-title {
+    font-size: 50px;
+    font-weight: 700;
+    color: #ffffff; 
+}
+
+.cardcurso-bookmark {
+    color: #ffffff; /* Ícone também branco */
+    font-size: 24px;
+}
+
+.cardcurso-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 20px;
+}
+
+.cardcurso-row {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 17px;
+}
+
+.cardcurso-label {
+    font-weight: 600;
+    color: #6b7280;
+}
+
+.cardcurso-value {
+    color: #334155;
+    font-weight: 500;
+}
+
+.cardcurso-tags {
+    margin-top: 6px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.tag-grau {
+    background: #eef6ff;
+    color: #075985;
+    border: 1px solid #dbeefb;
+}
+
+.tag-grau:hover {
+    background-color: #092e5e;
+    color: white;
+    border-color: #092e5e;
+}
+
+/* =============================================================================
+   RESPONSIVIDADE
+   ============================================================================= */
+@media (max-width: 1024px) {
+    #card-detalhe {
+        width: 85%;
+    }
+    #localCampus {
+        width: 100%;
+    }
+    .cardInfraestrutura {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    #topoCardCampus {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+    }
+    #nomeCampus h1 {
+        font-size: 36px;
+    }
+    #iconeCardCampus {
+        font-size: 60px;
+        width: 60px;
+    }
+    #stars {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    #card-detalhe {
+        width: 95%;
+        padding: 5px 0;
+    }
+    #nomeCampus h1 {
+        font-size: 28px;
+    }
+    .cardcurso-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}

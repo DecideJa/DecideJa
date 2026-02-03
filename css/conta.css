@@ -1,0 +1,126 @@
+#card-detalhe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    margin: auto;
+}
+
+body{
+    background: #b8b8b8;
+    background: linear-gradient(180deg, rgba(184, 184, 184, 1) 0%, rgba(235, 235, 235, 1) 40%, rgba(255, 255, 255, 1) 100%);
+}
+
+#cardConta {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    background: #092e5e;
+    margin-bottom: 0px !important;
+
+}
+
+#topoCardConta{
+    margin-top: 0px;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#fotoDefault{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       /* preenche e centraliza; use 'contain' para ver a imagem inteira */
+    display: block;
+}
+
+#divFotoUsuario{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    padding: 0;              /* remover padding para alinhar corretamente */
+    overflow: hidden;
+    border: 3px solid #092e5e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    box-sizing: border-box;
+}
+
+#divTextoBoasVindas{
+    color: #092e5e;
+    margin: auto;
+    padding: 20px;
+    padding-bottom: 10px;
+    align-items: left;
+}
+
+#textoNome{
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 50px;
+}
+
+#textoTopoCardUsuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    font-size: 24px;
+    font-weight: 600;
+    color: #585a5e;
+    margin-top: 10px;
+}
+
+#corpoCardConta {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+#corpoCardUsuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+}
+
+#textoInfoPessoais {
+    font-weight: 600;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+#dados-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 40px;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.divDados {
+    flex: 1;
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.textoRespostaLabel {
+    font-weight: 400;
+    font-size: 18px;
+    color: #424242;
+}

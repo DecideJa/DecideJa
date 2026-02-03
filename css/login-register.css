@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;600;700&display=swap');
+
+* {
+    font-family: 'Lexend Deca', Arial, sans-serif;
+}
+
+img {
+    width: 300px;
+}
+
+body {
+    font-family: 'Lexend Deca', Arial, sans-serif;
+    background-color: #faf8f1;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    /* Evita scroll desnecessário */
+}
+
+.screen {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    /* Garante posicionamento correto para painéis */
+}
+
+.screen.active {
+    display: flex;
+}
+
+.left-panel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    /* background-color: #092e5e; */
+    /* Fundo sutil para o lado esquerdo */
+    overflow-y: auto;
+    /* Permite scroll se o conteúdo for muito alto */
+    z-index: 1;
+    /* Garante que fique acima se necessário */
+}
+
+body {
+    background-image: url('../imagens/relevo.png');
+    background-size: cover;
+    background-position: bottom;
+}
+
+.right-panel {
+    width: 45%;
+    background-size: 100%;
+    background-position: bottom;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    /* align-items: center;  */
+    /* justify-content: center; */
+    flex-shrink: 0;
+    /* Evita que o painel encolha */
+}
+
+.right-panel h1 {
+    color: #002359;
+    margin-left: 10%;
+    font-size: 80px;
+    font-weight: 700;
+    margin-left: 0px;
+    margin-right: 40%;
+    margin-bottom: 32px;
+    line-height: 1.1;
+    margin-top: 15%;
+}
+
+.right-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Overlay sutil para não ofuscar a imagem */
+    z-index: 1;
+}
+
+.right-content {
+    position: relative;
+    z-index: 2;
+    text-align: right;
+    color: #fff;
+}
+
+.right-content img {
+
+    object-fit: cover;
+}
+
+.promo-card {
+    background-color: rgba(9, 46, 94, 0.8);
+    padding: 35px 25px;
+    border-radius: 20px;
+    border: 2px solid #fff;
+    box-shadow: 0 8px 20px rgba(9, 46, 94, 0.3);
+    /* sombra mais profunda */
+    width: 90%;
+    max-width: 550px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    transition: all 0.6s ease;
+    margin: auto;
+    margin-top: 15%;
+    margin-right: 35%;
+}
+
+.promo-card:hover {
+    transform: scale(1.02);
+}
+
+.promo-card h2 {
+    color: #fff;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.promo-card h2 span,
+h3 span {
+    color: #faf8f1;
+    text-shadow: none;
+}
+
+.promo-card h3 {
+    margin-bottom: 15px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    text-align: left;
+}
+
+
+.promo-btn {
+    width: 100%;
+    padding: 14px;
+    background-color: #153866;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    transition: all 0.6s ease;
+    box-shadow: 0 4px 10px rgba(9, 46, 94, 0.2);
+}
+
+.promo-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.promo-btn:hover {
+    transform: scale(1.02);
+    background-color: #092e5e;
+}
+
+.login-card,
+.register-card,
+.recover-card {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(9, 46, 94, 0.1);
+    width: 100%;
+    max-width: 40%;
+    min-width: 20%;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    /* Adiciona um leve blur para melhor integração com o fundo */
+    transition: all 0.7s ease;
+}
+
+/* .login-card:hover,
+.register-card:hover,
+.recover-card:hover {
+    transform: scale(1.01);
+} */
+
+.login-card h2,
+.register-card h2,
+.recover-card h2 {
+    margin-bottom: 20px;
+    color: #092e5e;
+    text-transform: uppercase;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+    margin-right: 12px;
+}
+
+.logo span {
+    font-size: 40px;
+    font-weight: bold;
+    color: #092e5e;
+}
+
+.type-buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.type-btn {
+    padding: 10px 15px;
+    border: 2px solid #6b7280;
+    background-color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    flex: 1;
+    margin: 0 5px;
+}
+
+.type-btn.active {
+    background-color: #092e5e;
+    color: white;
+    border-color: #153866;
+    font-size: 16px;
+}
+
+.type-btn:hover {
+    border-color: #092e5e;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #6b7280;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Input com ícone (olho) dentro */
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-with-icon input {
+    width: 100%;
+    padding-right: 40px;
+    /* Espaço para o ícone */
+}
+
+.toggle-eye {
+    position: absolute;
+    right: 10px;
+    cursor: pointer;
+    color: #6b7280;
+    font-size: 16px;
+    user-select: none;
+}
+
+.toggle-eye:hover {
+    color: #092e5e;
+}
+
+.forgot-password {
+    margin-top: 5px;
+    text-align: left;
+    /* Alinhado à esquerda, como pedido */
+    font-size: 14px;
+}
+
+.forgot-password a {
+    color: #092e5e;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.forgot-password a:hover {
+    text-decoration: underline;
+}
+
+.login-btn,
+.register-btn,
+.recover-btn {
+    width: 100%;
+    padding: 12px;
+    background-color: #153866;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: all 0.5s ease;
+}
+
+.login-btn:hover,
+.register-btn:hover,
+.recover-btn:hover {
+    background-color: #092e5e;
+    transform: scale(1.03);
+}
+
+.login-btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.extra-field {
+    display: none;
+}
+
+.extra-field.active {
+    display: block;
+}
+
+.register-link {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.register-link a {
+    color: #092e5e;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos específicos para registro */
+.register-card .type-buttons {
+    margin-bottom: 15px;
+}
+
+/* Para recuperação de senha, simplificado */
+.recover-card .form-group {
+    margin-bottom: 20px;
+}
+
+/* Responsividade básica para telas menores (stack vertical) */
+@media (max-width: 768px) {
+
+    .left-panel,
+    .right-panel {
+        width: 100%;
+    }
+
+    .right-panel {
+        display: none;
+        /* Esconde a imagem e o promo-card em mobile para foco no form */
+    }
+
+    .left-panel {
+        padding: 10px;
+    }
+}
+
+/* Transição suave para evitar "sumiço" visual ao trocar telas */
+.screen {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.screen.active {
+    opacity: 1;
+}
+
+#olho {
+    color: #002359;
+}
+
+#textField {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.register-link {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-direction: column;
+
+
+}
+#nome {
+    /* color: #dbe0e6; */
+    color: black;
+}

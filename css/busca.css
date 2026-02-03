@@ -1,0 +1,166 @@
+/* layout busca */
+#busca-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+    position: relative;
+}
+
+#busca {
+    width: 40vw;
+    min-width: 220px;
+    max-width: 600px;
+    font-size: 1.1rem;
+    padding: 10px 18px;
+    border-radius: 18px;
+    border: 2.5px solid #092e5e;
+    outline: none;
+    transition: border 0.2s;
+}
+
+.busca {
+    position: relative;
+}
+
+.busca i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #032b60;
+    font-size: 20px;
+}
+
+#advanced-search-btn {
+    padding: 10px 14px;
+    border-radius: 18px;
+    border: 2.5px solid #092e5e;
+    background: #fff;
+    color: #092e5e;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-left: 4px;
+    transition: background 0.2s, color 0.2s;
+}
+
+#advanced-search-btn:hover {
+    background: #092e5e;
+    color: #fff;
+}
+
+/* Advanced dropdown */
+#advanced-search-dropdown {
+    top: 120px; /* ajusta conforme necessário */
+    background: #fff;
+    border: 2px solid #092e5e;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 18px 24px;
+    z-index: 1000;
+    min-width: 320px;
+    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#advanced-search-dropdown.hidden {
+    display: none;
+}
+
+#advanced-search-form label {
+    font-size: 1rem;
+    color: #092e5e;
+    margin-bottom: 8px;
+    display: block;
+}
+
+#advanced-search-form button[type="submit"],
+#advanced-search-form #advanced-clear {
+    margin-top: 12px;
+    padding: 8px 16px;
+    border-radius: 8px;
+    border: none;
+    background: #092e5e;
+    color: #fff;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#advanced-search-form #advanced-clear {
+    margin-left: 8px;
+    background: #d1d5db; /* cor secundária */
+    color: #092e5e;
+}
+
+/* Botões de tipo de busca (acima da barra) */
+#filtros-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 22px 0 8px 0;
+}
+
+.botoes_busca {
+    padding: 8px 14px;
+    border-radius: 999px;
+    border: 2px solid #092e5e;
+    background: #fff;
+    color: #092e5e;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.12s, color 0.12s, transform 0.08s;
+}
+
+.botoes_busca:hover {
+    transform: translateY(-1px);
+}
+
+/* destaque do tipo selecionado */
+.filtro-ativo {
+    background: #092e5e;
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(9,46,94,0.12);
+}
+
+/* Seções dos filtros avançados */
+.advanced-filters-section {
+    margin-bottom: 8px;
+}
+
+.advanced-filters-section.hidden {
+    display: none;
+}
+
+.placeholder-text {
+    color: #092e5e;
+    opacity: 0.85;
+    font-size: 0.95rem;
+}
+
+.advanced-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+/* estilo quando o dropdown de filtros estiver aberto/ativo */
+#advanced-search-btn.active,
+#advanced-search-btn.active:not(:disabled) {
+    background: #092e5e;
+    color: #fff;
+    border-color: #092e5e;
+    box-shadow: 0 6px 18px rgba(9,46,94,0.18);
+}
+
+/* se quiser garantir que o estado disabled não mostre estilo ativo */
+#advanced-search-btn:disabled.active {
+    background: #f5f7fa;
+    color: #7b8aa0;
+    border-color: #d1d5db;
+    box-shadow: none;
+}
