@@ -1100,9 +1100,10 @@ function initializeAvatarDropdown() {
     });
     document.getElementById("titulo").addEventListener('click', (e) => {
         e.stopPropagation();
-        window.location.href = 'inicio.html';
+        window.location.href = 'index.html';
         
     });
 }
+
 
 
