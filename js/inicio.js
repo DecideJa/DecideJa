@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     var myCarousel = document.querySelector('#carouselExampleIndicators');
     if (myCarousel) {
         var carousel = new bootstrap.Carousel(myCarousel, {
-            interval: 3500,
+            interval: 5500,
             ride: 'carousel'
         });
     }
@@ -268,4 +268,5 @@ function formatDistance(dKm) {
 }
 
 setupCarousel("carousel-melhorAvaliadas", "arrow-melhorAvaliadas-left", "arrow-melhorAvaliadas-right");
+
 setupCarousel("carousel-pertoDeVoce", "arrow-pertoDeVoce-left", "arrow-pertoDeVoce-right");
