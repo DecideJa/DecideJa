@@ -116,7 +116,7 @@ async function handleLogin() {
             return;
         }
         // Sucesso
-        window.location.href = 'inicio.html';
+        window.location.href = 'index.html';
     } catch (err) {
         console.error(err);
         alert('Erro inesperado no login. Veja console.');
@@ -218,4 +218,5 @@ document.querySelectorAll('.toggle-eye').forEach(icon => {
             icon.classList.add('fa-eye');
         }
     });
+
 });
